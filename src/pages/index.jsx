@@ -5,5 +5,3 @@ export { default as ListedProducts } from "./ListedProducts";
 export { default as AddProduct } from "./AddProduct";
 export { default as Settings } from "./Settings";
 export { default as Adverts } from "./Adverts";
-export { default as Line } from "./Charts/Line";
-export { default as Stacked } from "./Charts/Stacked";
