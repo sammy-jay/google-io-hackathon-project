@@ -1,5 +1,9 @@
-import React from 'react';
-import { SparklineComponent, Inject, SparklineTooltip } from '@syncfusion/ej2-react-charts';
+import React from "react";
+import {
+  SparklineComponent,
+  Inject,
+  SparklineTooltip,
+} from "@syncfusion/ej2-react-charts";
 
 class SparkLine extends React.PureComponent {
   render() {
@@ -17,12 +21,12 @@ class SparkLine extends React.PureComponent {
         tooltipSettings={{
           visible: true,
           // eslint-disable-next-line no-template-curly-in-string
-          format: '${x} : data ${yval}',
+          format: "₦{x} : data ₦{yval}",
           trackLineSettings: {
             visible: true,
           },
         }}
-        markerSettings={{ visible: ['All'], size: 2.5, fill: currentColor }}
+        markerSettings={{ visible: ["All"], size: 2.5, fill: currentColor }}
         dataSource={data}
         xName="x"
         yName="yval"

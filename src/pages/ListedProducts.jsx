@@ -1,3 +1,5 @@
+import { listedProductsData, listedProductsGrid } from "../data/dummy";
+
 import React from "react";
 import {
   GridComponent,
@@ -10,6 +12,7 @@ import {
   Page,
   ExcelExport,
   PdfExport,
+  Toolbar,
   Edit,
   Inject,
 } from "@syncfusion/ej2-react-grids";
@@ -17,21 +20,24 @@ import { useStateContext } from "../contexts/ContextProvider";
 import { ordersData, contextMenuItems, ordersGrid } from "../data/dummy";
 import { Header } from "../components";
 
-const Orders = () => {
+const ListedProducts = () => {
+  const toolbarOptions = ["Delete"];
   return (
     <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
-      <Header category="Stats" title="Orders" />
+      <Header category="Products" title="Listed" />
       <GridComponent
         id="gridcomp"
-        dataSource={ordersData}
+        dataSource={listedProductsData}
         allowPaging
         allowSorting
+        toolbar={toolbarOptions}
         allowExcelExport
         allowPdfExport
-        contextMenuItems={contextMenuItems}
+        pageSettings={{ pageCount: 5 }}
       >
         <ColumnsDirective>
-          {ordersGrid.map((item, index) => (
+          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+          {listedProductsGrid.map((item, index) => (
             <ColumnDirective key={index} {...item} />
           ))}
         </ColumnsDirective>
@@ -41,6 +47,7 @@ const Orders = () => {
             Sort,
             ContextMenu,
             Filter,
+            Toolbar,
             Page,
             ExcelExport,
             Edit,
@@ -51,4 +58,4 @@ const Orders = () => {
     </div>
   );
 };
-export default Orders;
+export default ListedProducts;
