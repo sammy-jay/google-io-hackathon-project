@@ -6,7 +6,7 @@ import { ContextProvider } from "./pages/seller/contexts/ContextProvider";
 import { StateContext } from './pages/buyer/context/StateContext';
 
 const App = () => {
-  const [isBuyer, setIsBuyer] = useState(true);
+  const [isBuyer, setIsBuyer] = useState(false);
 
   if (isBuyer) {
     return (

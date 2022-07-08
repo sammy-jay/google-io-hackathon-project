@@ -22,7 +22,7 @@ const Settings = () => {
           <p className="text-sm text-center">I love coding 😎</p>
           <p className="text-sm text-gray-500">techwithtols@gmail.com</p>
         </div>
-        <div className="h-[50%] dark:text-gray-200 dark:bg-secondary-dark-bg bg-white rounded-md shadow-md py-5 px-5 flex flex-col divide-y-1 justify-around">
+        <div className="h-[50%] dark:text-gray-200 dark:bg-secondary-dark-bg bg-white rounded-md shadow-md py-5 px-5 flex flex-col divide-y-1 dark:divide-gray-500 justify-around">
           <div className="w-full flex justify-between items-center py-2 px-2 cursor-pointer text-sm">
             <IoMdInformation className="sidebar-icon" />
             <span>Information</span>
@@ -57,7 +57,9 @@ const Settings = () => {
               type="text"
               id="firstName"
               placeholder="First Name"
-              className={`flex-grow border px-3 py-1 rounded outline-0 focus:outline-0 placeholder:text-sm bg-white text-base focus:ring-2 focus:ring-${currentColor} dark:bg-secondary-dark-bg dark:text-white`}
+              className={`flex-grow border px-3 py-1 
+              dark:border-gray-500
+              rounded outline-0 focus:outline-0 placeholder:text-sm bg-white text-base focus:ring-2 focus:ring-${currentColor} dark:bg-secondary-dark-bg dark:text-white`}
             />
           </div>
           <div className="flex flex-col w-full">
@@ -71,7 +73,7 @@ const Settings = () => {
               type="text"
               id="lastName"
               placeholder="Last Name"
-              className={`flex-grow border px-3 py-1 rounded outline-0 focus:outline-0 placeholder:text-sm bg-white text-base focus:ring-2 focus:ring-${currentColor} dark:bg-secondary-dark-bg dark:text-white`}
+              className={`flex-grow border px-3 py-1 rounded outline-0 focus:outline-0 placeholder:text-sm bg-white text-base focus:ring-2 dark:border-gray-500 focus:ring-${currentColor} dark:bg-secondary-dark-bg dark:text-white`}
             />
           </div>
         </div>
@@ -87,7 +89,7 @@ const Settings = () => {
               type="text"
               id="email"
               placeholder="Email Address"
-              className={`flex-grow border px-3 py-1 rounded outline-0 focus:outline-0 placeholder:text-sm bg-white text-base focus:ring-2 focus:ring-${currentColor} dark:bg-secondary-dark-bg dark:text-white`}
+              className={`flex-grow border px-3 py-1 dark:border-gray-500 rounded outline-0 focus:outline-0 placeholder:text-sm bg-white text-base focus:ring-2 focus:ring-${currentColor} dark:bg-secondary-dark-bg dark:text-white`}
             />
           </div>
           <div className="flex flex-col w-full">
@@ -101,7 +103,7 @@ const Settings = () => {
               type="text"
               id="address"
               placeholder="Work Address"
-              className={`flex-grow border px-3 py-1 rounded outline-0 focus:outline-0 placeholder:text-sm bg-white text-base focus:ring-2 focus:ring-${currentColor} dark:bg-secondary-dark-bg dark:text-white`}
+              className={`flex-grow border px-3 py-1 rounded outline-0 focus:outline-0 placeholder:text-sm bg-white text-base focus:ring-2 dark:border-gray-500 focus:ring-${currentColor} dark:bg-secondary-dark-bg dark:text-white`}
             />
           </div>
         </div>
