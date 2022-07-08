@@ -1,4 +1,4 @@
-export { default as SellerHome } from "./SellerHome";
+export { default as Home } from "./Home";
 export { default as Orders } from "./Orders";
 export { default as Customers } from "./Customers";
 export { default as ListedProducts } from "./ListedProducts";

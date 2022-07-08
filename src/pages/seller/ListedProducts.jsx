@@ -1,4 +1,4 @@
-import { listedProductsData, listedProductsGrid } from "../data/dummy";
+import { listedProductsData, listedProductsGrid } from "./data/dummy";
 
 import React from "react";
 import {
@@ -16,9 +16,7 @@ import {
   Edit,
   Inject,
 } from "@syncfusion/ej2-react-grids";
-import { useStateContext } from "../contexts/ContextProvider";
-import { ordersData, contextMenuItems, ordersGrid } from "../data/dummy";
-import { Header } from "../components";
+import { Header } from "./components";
 
 const ListedProducts = () => {
   const toolbarOptions = ["Delete"];

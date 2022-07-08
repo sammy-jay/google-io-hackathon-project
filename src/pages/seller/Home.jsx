@@ -2,15 +2,15 @@ import React from "react";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { GoPrimitiveDot } from "react-icons/go";
 import { DropDownListComponent } from "@syncfusion/ej2-react-dropdowns";
-import product9 from "../data/product9.jpg";
-import { Stacked, Button, LineChart, SparkLine } from "../components";
+import product9 from "./data/product9.jpg";
+import { Stacked, Button, LineChart, SparkLine } from "./components";
 import {
   earningData,
   recentTransactions,
   dropdownData,
   SparklineAreaData,
-} from "../data/dummy";
-import { useStateContext } from "../contexts/ContextProvider";
+} from "./data/dummy";
+import { useStateContext } from "./contexts/ContextProvider";
 import { IoIosMore } from "react-icons/io";
 
 const DropDown = ({ currentMode }) => (
@@ -27,7 +27,7 @@ const DropDown = ({ currentMode }) => (
   </div>
 );
 
-const SellerHome = () => {
+const Home = () => {
   const { currentColor, currentMode } = useStateContext();
 
   return (
@@ -231,4 +231,4 @@ const SellerHome = () => {
   );
 };
 
-export default SellerHome;
+export default Home;

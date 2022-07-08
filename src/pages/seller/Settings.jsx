@@ -1,11 +1,11 @@
 import React from "react";
-import { Button } from "../components";
-import { useStateContext } from "../contexts/ContextProvider";
+import { Button } from "./components";
+import { useStateContext } from "./contexts/ContextProvider";
 import { AiOutlineLogout } from "react-icons/ai";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { IoMdInformation } from "react-icons/io";
 import { RiLockPasswordLine } from "react-icons/ri";
-import avatar from "../data/avatar.jpg";
+import avatar from "./data/avatar.jpg";
 
 const Settings = () => {
   const { currentColor, currentMode } = useStateContext();

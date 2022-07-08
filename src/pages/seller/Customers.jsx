@@ -12,9 +12,9 @@ import {
   Filter,
 } from "@syncfusion/ej2-react-grids";
 
-import { customersData, customersGrid } from "../data/dummy";
-import { Header } from "../components";
-import { useStateContext } from "../contexts/ContextProvider";
+import { customersData, customersGrid } from "./data/dummy";
+import { Header } from "./components";
+import { useStateContext } from "./contexts/ContextProvider";
 
 const Customers = () => {
   const { currentMode } = useStateContext();

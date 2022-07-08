@@ -1,44 +1,26 @@
 import React from "react";
 import {
-  AiOutlineCalendar,
   AiOutlineShoppingCart,
-  AiOutlineAreaChart,
-  AiOutlineBarChart,
   AiOutlineHome,
-  AiOutlineStock,
   AiOutlineSetting,
-  AiOutlineLogout,
 } from "react-icons/ai";
 import {
-  FiShoppingBag,
-  FiEdit,
-  FiPieChart,
   FiBarChart,
   FiCreditCard,
-  FiStar,
-  FiShoppingCart,
 } from "react-icons/fi";
 import {
-  BsKanban,
-  BsBarChart,
   BsBoxSeam,
   BsCurrencyDollar,
   BsShield,
-  BsChatLeft,
   BsShopWindow,
 } from "react-icons/bs";
-import { BiColorFill } from "react-icons/bi";
-import { FcAdvertising } from "react-icons/fc";
-import { IoMdContacts } from "react-icons/io";
 import { IoBagAddOutline } from "react-icons/io5";
-import { RiContactsLine, RiStockLine } from "react-icons/ri";
+import { RiContactsLine } from "react-icons/ri";
 import {
-  MdOutlineAddBusiness,
   MdOutlineSupervisorAccount,
 } from "react-icons/md";
-import { HiOutlineRefresh, HiOutlineSpeakerphone } from "react-icons/hi";
+import {  HiOutlineSpeakerphone } from "react-icons/hi";
 import { TiTick } from "react-icons/ti";
-import { GiLouvrePyramid } from "react-icons/gi";
 import { GrLocation } from "react-icons/gr";
 import avatar from "./avatar.jpg";
 import avatar2 from "./avatar2.jpg";
