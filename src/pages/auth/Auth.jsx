@@ -8,8 +8,8 @@ const Auth = () => {
       <div className=" py-20 max-w-[600px] mx-auto px-5 w-[90%]">
         <div className="flex justify-around items-baseline">
           <button
-            onClick={() => setIsBuyer((prev) => !prev)}
-            className={`cursor-pointer  rounded px-5 py-2 text-xl outline-0   ${
+            onClick={() => setIsBuyer((prev) => true)}
+            className={`hover:drop-shadow-xl cursor-pointer  rounded px-5 py-2 text-xl outline-0   ${
               isBuyer
                 ? "text-white bg-[#7352ff]"
                 : "hover:text-white bg-white hover:bg-[#7352ff]"
@@ -19,8 +19,8 @@ const Auth = () => {
           </button>
 
           <button
-            onClick={() => setIsBuyer((prev) => !prev)}
-            className={`cursor-pointer  rounded px-5 py-2 text-xl outline-0   ${
+            onClick={() => setIsBuyer((prev) => false)}
+            className={`hover:drop-shadow-xl cursor-pointer  rounded px-5 py-2 text-xl outline-0   ${
               !isBuyer
                 ? "text-white bg-[#7352ff]"
                 : "hover:text-white bg-white hover:bg-[#7352ff]"
