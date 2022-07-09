@@ -1,14 +1,48 @@
 import React, { useState } from "react";
+import { createUser, signInUser } from '../../firebaseUtils';
 
 const Auth = () => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
   const [isBuyer, setIsBuyer] = useState(true);
   const [isLogin, setIsLogin] = useState(true);
+
+  const handleSubmit = () => {
+    if (isLogin && formData){
+      signInUser(formData, isBuyer)
+    }else{
+      createUser(formData, isBuyer)
+    }
+  }
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  const clearData = () => {
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+    });
+  }
   return (
     <div className="bg-gray-100 min-w-[100vw] min-h-[100vh]">
       <div className=" py-20 max-w-[600px] mx-auto px-5 w-[90%]">
         <div className="flex justify-around items-baseline">
           <button
-            onClick={() => setIsBuyer((prev) => true)}
+            onClick={() => {
+              setIsBuyer((prev) => false);
+              setFormData({
+                firstName: "",
+                lastName: "",
+                email: "",
+                password: "",
+              });
+            }}
             className={`hover:drop-shadow-xl cursor-pointer  rounded px-5 py-2 text-xl outline-0   ${
               isBuyer
                 ? "text-white bg-[#7352ff]"
@@ -19,7 +53,15 @@ const Auth = () => {
           </button>
 
           <button
-            onClick={() => setIsBuyer((prev) => false)}
+            onClick={() => {
+              setIsBuyer((prev) => false);
+              setFormData({
+                firstName: "",
+                lastName: "",
+                email: "",
+                password: "",
+              });
+            }}
             className={`hover:drop-shadow-xl cursor-pointer  rounded px-5 py-2 text-xl outline-0   ${
               !isBuyer
                 ? "text-white bg-[#7352ff]"
@@ -45,8 +87,11 @@ const Auth = () => {
                     First Name
                   </label>
                   <input
+                    onChange={handleChange}
+                    value={formData.firstName}
                     type="text"
                     id="firstName"
+                    name="firstName"
                     placeholder="First Name"
                     className={`flex-grow border px-3 py-1 
               dark:border-gray-500
@@ -61,8 +106,11 @@ const Auth = () => {
                     Last Name
                   </label>
                   <input
+                    onChange={handleChange}
+                    value={formData.lastName}
                     type="text"
                     id="lastName"
+                    name="lastName"
                     placeholder="Last Name"
                     className={`flex-grow border px-3 py-1 rounded outline-0 focus:outline-0 placeholder:text-sm bg-white text-base focus:ring-2 dark:border-gray-500 focus:ring-[#7352ff] dark:bg-secondary-dark-bg dark:text-white`}
                   />
@@ -84,22 +132,28 @@ const Auth = () => {
                   Email Address
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={formData.email}
                   type="text"
                   id="email"
+                  name="email"
                   placeholder="Email Address"
                   className={`flex-grow border px-3 py-1 dark:border-gray-500 rounded outline-0 focus:outline-0 placeholder:text-sm bg-white text-base focus:ring-2 focus:ring-[#7352ff] dark:bg-secondary-dark-bg dark:text-white`}
                 />
               </div>
               <div className="flex flex-col w-full">
                 <label
-                  htmlFor="address"
+                  htmlFor="password"
                   className="block mb-3 text-sm  text-gray-500"
                 >
                   Password
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={formData.password}
                   type="password"
-                  id="address"
+                  id="password"
+                  name="password"
                   placeholder="Password"
                   className={`flex-grow border px-3 py-1 rounded outline-0 focus:outline-0 placeholder:text-sm bg-white text-base focus:ring-2 dark:border-gray-500 focus:ring-[#7352ff] dark:bg-secondary-dark-bg dark:text-white`}
                 />
@@ -107,13 +161,17 @@ const Auth = () => {
             </div>
             <span
               className="block my-3 mt-5 cursor-pointer hover:underline text-gray-700"
-              onClick={() => setIsLogin((prev) => !prev)}
+              onClick={() => {
+                setIsLogin((prev) => !prev);
+                clearData();
+              }}
             >
               {isLogin ? "New user? Register" : "Already a user? Login"}
             </span>
             <div className="mt-6">
               <button
                 type="button"
+                onClick={handleSubmit}
                 className={`text-white bg-[#7352ff] rounded py-2 px-4 hover:drop-shadow-xl `}
               >
                 {isLogin ? "Login" : "Register"}
@@ -136,8 +194,11 @@ const Auth = () => {
                     First Name
                   </label>
                   <input
+                    onChange={handleChange}
+                    value={formData.firstName}
                     type="text"
                     id="firstName"
+                    name="firstName"
                     placeholder="First Name"
                     className={`flex-grow border px-3 py-1 
               dark:border-gray-500
@@ -152,8 +213,11 @@ const Auth = () => {
                     Last Name
                   </label>
                   <input
+                    value={formData.lastName}
+                    onChange={handleChange}
                     type="text"
                     id="lastName"
+                    name="lastName"
                     placeholder="Last Name"
                     className={`flex-grow border px-3 py-1 rounded outline-0 focus:outline-0 placeholder:text-sm bg-white text-base focus:ring-2 dark:border-gray-500 focus:ring-[#7352ff] dark:bg-secondary-dark-bg dark:text-white`}
                   />
@@ -176,21 +240,27 @@ const Auth = () => {
                 </label>
                 <input
                   type="text"
+                  value={formData.email}
+                  onChange={handleChange}
                   id="email"
+                  name="email"
                   placeholder="Email Address"
                   className={`flex-grow border px-3 py-1 dark:border-gray-500 rounded outline-0 focus:outline-0 placeholder:text-sm bg-white text-base focus:ring-2 focus:ring-[#7352ff] dark:bg-secondary-dark-bg dark:text-white`}
                 />
               </div>
               <div className="flex flex-col w-full">
                 <label
-                  htmlFor="address"
+                  htmlFor="password"
                   className="block mb-3 text-sm  text-gray-500"
                 >
                   Password
                 </label>
                 <input
                   type="password"
-                  id="address"
+                  id="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  name="password"
                   placeholder="Password"
                   className={`flex-grow border px-3 py-1 rounded outline-0 focus:outline-0 placeholder:text-sm bg-white text-base focus:ring-2 dark:border-gray-500 focus:ring-[#7352ff] dark:bg-secondary-dark-bg dark:text-white`}
                 />
@@ -198,13 +268,17 @@ const Auth = () => {
             </div>
             <span
               className="block my-3 mt-5 cursor-pointer hover:underline text-gray-700"
-              onClick={() => setIsLogin((prev) => !prev)}
+              onClick={() => {
+                setIsLogin((prev) => !prev);
+                clearData();
+              }}
             >
               {isLogin ? "New user? Register" : "Already a user? Login"}
             </span>
             <div className="mt-6">
               <button
                 type="button"
+                onClick={handleSubmit}
                 className={`text-white bg-[#7352ff] rounded py-2 px-4 hover:drop-shadow-xl `}
               >
                 {isLogin ? "Login" : "Register"}

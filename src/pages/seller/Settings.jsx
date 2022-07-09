@@ -6,6 +6,10 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { IoMdInformation } from "react-icons/io";
 import { RiLockPasswordLine } from "react-icons/ri";
 import avatar from "./data/avatar.jpg";
+import {  signOut } from "firebase/auth";
+import { auth } from '../../firebase';
+
+
 
 const Settings = () => {
   const { currentColor, currentMode } = useStateContext();
@@ -33,7 +37,15 @@ const Settings = () => {
             <span>Password</span>
             <MdOutlineKeyboardArrowRight />
           </div>
-          <div className="w-full flex justify-between items-center py-2 px-2 cursor-pointer  text-sm">
+          <div className="w-full flex justify-between items-center py-2 px-2 cursor-pointer  text-sm" onClick={() => {
+            signOut(auth)
+              .then(() => {
+                // Sign-out successful.
+              })
+              .catch((error) => {
+                // An error happened.
+              });
+          }}>
             <AiOutlineLogout className="sidebar-icon" />
             <span>Logout</span>
             <MdOutlineKeyboardArrowRight />
