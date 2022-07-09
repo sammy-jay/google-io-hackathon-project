@@ -109,9 +109,7 @@ const Auth = () => {
               className="block my-3 mt-5 cursor-pointer hover:underline text-gray-700"
               onClick={() => setIsLogin((prev) => !prev)}
             >
-              {isLogin
-                ? "New user? Register"
-                : "Already a user? Login"}
+              {isLogin ? "New user? Register" : "Already a user? Login"}
             </span>
             <div className="mt-6">
               <button
@@ -202,9 +200,7 @@ const Auth = () => {
               className="block my-3 mt-5 cursor-pointer hover:underline text-gray-700"
               onClick={() => setIsLogin((prev) => !prev)}
             >
-              {isLogin
-                ? "New user? Register"
-                : "Already a user? Login"}
+              {isLogin ? "New user? Register" : "Already a user? Login"}
             </span>
             <div className="mt-6">
               <button
@@ -216,6 +212,12 @@ const Auth = () => {
             </div>
           </div>
         )}
+      </div>
+
+      <div className="mt-24">
+        <p className="text-gray-700 text-center p-20">
+          © {new Date().getFullYear()} All rights reserved by FarmX
+        </p>
       </div>
     </div>
   );

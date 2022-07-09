@@ -8,7 +8,7 @@ import Auth from "./pages/auth/Auth";
 
 const App = () => {
   const [isBuyer, setIsBuyer] = useState(true);
-  const [isAuthorized, setIsAuthorized] = useState(true);
+  const [isAuthorized, setIsAuthorized] = useState(false);
 
   if (!isAuthorized) {
     return <Auth />;
