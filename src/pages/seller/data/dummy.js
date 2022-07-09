@@ -531,21 +531,21 @@ export const ordersGrid = [
 ];
 export const listedProductsData = [
   {
-    ProductID: 1001,
+    Tags: "vegies fruits",
     Name: "Puple Onions",
     Count: "21",
     ProductImage: product6,
     Price: "₦450",
   },
   {
-    ProductID: 1002,
+    Tags: "vegies fruits",
     Name: "Red Tomato",
     Count: "44",
     Price: "₦650",
     ProductImage: product5,
   },
   {
-    ProductID: 1003,
+    Tags: "vegies fruits",
     Name: "Green Gabbage",
     Count: "50",
     Price: "₦2300",
@@ -560,6 +560,7 @@ export const listedProductsGrid = [
     template: gridOrderImage,
     textAlign: "Center",
     width: "120",
+    isPrimaryKey: true,
   },
   {
     field: "Name",
@@ -583,11 +584,10 @@ export const listedProductsGrid = [
   },
 
   {
-    field: "ProductID",
-    headerText: "ProductID",
+    field: "Tags",
+    headerText: "Tags",
     width: "120",
     textAlign: "Center",
-    isPrimaryKey: true,
   },
 ];
 

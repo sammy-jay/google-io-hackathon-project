@@ -1,16 +1,26 @@
-import React, { useRef } from 'react';
+import React, { useRef } from "react";
 
-import { AiOutlineMinus, AiOutlinePlus, AiOutlineLeft, AiOutlineShopping } from 'react-icons/ai';
-import { TiDeleteOutline } from 'react-icons/ti';
-import toast from 'react-hot-toast';
+import {
+  AiOutlineMinus,
+  AiOutlinePlus,
+  AiOutlineLeft,
+  AiOutlineShopping,
+} from "react-icons/ai";
+import { TiDeleteOutline } from "react-icons/ti";
 
-import { useStateContext } from '../context/StateContext';
-import { Link } from 'react-router-dom';
-
+import { useStateContext } from "../context/StateContext";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const cartRef = useRef();
-  const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuanitity, onRemove } = useStateContext(); 
+  const {
+    totalPrice,
+    totalQuantities,
+    cartItems,
+    setShowCart,
+    toggleCartItemQuanitity,
+    onRemove,
+  } = useStateContext();
 
   return (
     <div className="cart-wrapper" ref={cartRef}>
@@ -45,7 +55,11 @@ const Cart = () => {
           {cartItems.length >= 1 &&
             cartItems.map((item) => (
               <div className="product" key={item._id}>
-                <img src={item.image[0]} alt="" className="cart-product-image" />
+                <img
+                  src={item.image[0]}
+                  alt=""
+                  className="cart-product-image"
+                />
                 <div className="item-desc">
                   <div className="flex top">
                     <h5>{item.name}</h5>
@@ -103,6 +117,6 @@ const Cart = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Cart
+export default Cart;
