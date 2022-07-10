@@ -4,7 +4,8 @@ import {
 } from "firebase/auth";
 import { auth, db } from "./firebase";
 import { collection, addDoc } from "firebase/firestore";
-
+import { toast } from "react-hot-toast";
+ 
 export const createUser = (formData, isBuyer) => {
   createUserWithEmailAndPassword(auth, formData.email, formData.password)
     .then((userCredential) => {
@@ -17,25 +18,23 @@ export const createUser = (formData, isBuyer) => {
         lastName: formData.lastName,
         email: user.email,
       })
-        .then((docRef) => console.log(docRef))
+        .then((docRef) => toast.success('Redirecting...'))
         .catch((e) => console.log(e));
     })
     .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // ..
+      toast.error("An error occurred...");
+      return
     });
 };
 
 export const signInUser = (formData, isBuyer) => {
   signInWithEmailAndPassword(auth, formData.email, formData.password)
     .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      console.log(user);
+     toast.success("Redirecting...");
+     return
     })
     .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
+     toast.error("An error occurred...");
+     return;
     });
 };

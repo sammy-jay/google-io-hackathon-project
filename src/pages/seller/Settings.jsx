@@ -1,30 +1,53 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "./components";
 import { useStateContext } from "./contexts/ContextProvider";
 import { AiOutlineLogout } from "react-icons/ai";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { IoMdInformation } from "react-icons/io";
 import { RiLockPasswordLine } from "react-icons/ri";
+import { FaUserCircle } from "react-icons/fa";
 import avatar from "./data/avatar.jpg";
-import {  signOut } from "firebase/auth";
-import { auth } from '../../firebase';
-
-
+import { signOut } from "firebase/auth";
+import { auth, db } from "../../firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import { collection, getDocs } from "firebase/firestore";
 
 const Settings = () => {
   const { currentColor, currentMode } = useStateContext();
+  const [user, setUser] = useState({firstName: "", lastName: "", email:""});
+
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const uid = user.uid;
+        getDocs(collection(db, "users"))
+          .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+              const { userId } = doc.data();
+              if (userId === uid) {
+                setUser(doc.data());
+                return;
+              }
+              return;
+            });
+          })
+          .catch((e) => console.log(e));
+      } else {
+      }
+    });
+  }, []);
+
   return (
     <div className="max-w-[1000px] flex lg:mx-auto m-2 w-[95%] md:m-10 mt-24 p-5 md:p-10 space-y-5 lg:space-y-0 lg:space-x-5 flex-col lg:flex-row lg:h-[480px] ">
       <div className="flex flex-col space-y-5 lg:w-2/6">
         <div className="dark:text-gray-200 dark:bg-secondary-dark-bg bg-white rounded-md shadow-md py-5 space-y-2 px-5 flex flex-col items-center relative h-[50%]">
-          <img
-            className="rounded-full w-28 h-28 absolute -top-14"
-            src={avatar}
-            alt="user-profile"
-          />
-          <h2 className="font-bold text-lg pt-8">Tolu Soneye</h2>
+          <FaUserCircle className="text-white bg-gray-200 dark:text-gray-200 dark:bg-secondary-dark-bg rounded-full w-28 h-28 absolute -top-14" />
+          <h2 className="font-bold text-lg pt-8">
+            {user?.firstName} {user?.lastName}
+          </h2>
           <p className="text-sm text-center">I love coding 😎</p>
-          <p className="text-sm text-gray-500">techwithtols@gmail.com</p>
+          <p className="text-sm text-gray-500">{user?.email}</p>
         </div>
         <div className="h-[50%] dark:text-gray-200 dark:bg-secondary-dark-bg bg-white rounded-md shadow-md py-5 px-5 flex flex-col divide-y-1 dark:divide-gray-500 justify-around">
           <div className="w-full flex justify-between items-center py-2 px-2 cursor-pointer text-sm">
@@ -37,15 +60,14 @@ const Settings = () => {
             <span>Password</span>
             <MdOutlineKeyboardArrowRight />
           </div>
-          <div className="w-full flex justify-between items-center py-2 px-2 cursor-pointer  text-sm" onClick={() => {
-            signOut(auth)
-              .then(() => {
-                // Sign-out successful.
-              })
-              .catch((error) => {
-                // An error happened.
-              });
-          }}>
+          <div
+            className="w-full flex justify-between items-center py-2 px-2 cursor-pointer  text-sm"
+            onClick={() => {
+              signOut(auth)
+                .then(() => {})
+                .catch((error) => {});
+            }}
+          >
             <AiOutlineLogout className="sidebar-icon" />
             <span>Logout</span>
             <MdOutlineKeyboardArrowRight />
@@ -68,6 +90,8 @@ const Settings = () => {
             <input
               type="text"
               id="firstName"
+              onChange={() => {}}
+              value={user?.firstName}
               placeholder="First Name"
               className={`flex-grow border px-3 py-1 
               dark:border-gray-500
@@ -83,6 +107,8 @@ const Settings = () => {
             </label>
             <input
               type="text"
+              onChange={() => {}}
+              value={user?.lastName}
               id="lastName"
               placeholder="Last Name"
               className={`flex-grow border px-3 py-1 rounded outline-0 focus:outline-0 placeholder:text-sm bg-white text-base focus:ring-2 dark:border-gray-500 focus:ring-${currentColor} dark:bg-secondary-dark-bg dark:text-white`}
@@ -100,6 +126,8 @@ const Settings = () => {
             <input
               type="text"
               id="email"
+              onChange={() => {}}
+              value={user?.email}
               placeholder="Email Address"
               className={`flex-grow border px-3 py-1 dark:border-gray-500 rounded outline-0 focus:outline-0 placeholder:text-sm bg-white text-base focus:ring-2 focus:ring-${currentColor} dark:bg-secondary-dark-bg dark:text-white`}
             />

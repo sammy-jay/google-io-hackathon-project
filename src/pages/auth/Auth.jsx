@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { createUser, signInUser } from '../../firebaseUtils';
+import { createUser, signInUser } from "../../firebaseUtils";
+import { toast } from "react-hot-toast";
 
 const Auth = () => {
   const [formData, setFormData] = useState({
@@ -12,15 +13,24 @@ const Auth = () => {
   const [isLogin, setIsLogin] = useState(true);
 
   const handleSubmit = () => {
-    if (isLogin && formData){
-      signInUser(formData, isBuyer)
-    }else{
-      createUser(formData, isBuyer)
+    if (!formData.email && !formData.password) {
+      toast.error(`Please fill in all fields`);
+      return;
     }
-  }
+    if (isLogin === true && formData) {
+      signInUser(formData, isBuyer);
+      return
+    }
+    if (isLogin === false && formData) {
+      createUser(formData, isBuyer);
+      return
+    }
+  };
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+  
   const clearData = () => {
     setFormData({
       firstName: "",
@@ -28,20 +38,16 @@ const Auth = () => {
       email: "",
       password: "",
     });
-  }
+  };
   return (
     <div className="bg-gray-100 min-w-[100vw] min-h-[100vh]">
       <div className=" py-20 max-w-[600px] mx-auto px-5 w-[90%]">
         <div className="flex justify-around items-baseline">
           <button
             onClick={() => {
-              setIsBuyer((prev) => false);
-              setFormData({
-                firstName: "",
-                lastName: "",
-                email: "",
-                password: "",
-              });
+              setIsBuyer((prev) => true);
+              clearData();
+              return;
             }}
             className={`hover:drop-shadow-xl cursor-pointer  rounded px-5 py-2 text-xl outline-0   ${
               isBuyer
@@ -55,12 +61,8 @@ const Auth = () => {
           <button
             onClick={() => {
               setIsBuyer((prev) => false);
-              setFormData({
-                firstName: "",
-                lastName: "",
-                email: "",
-                password: "",
-              });
+              clearData();
+              return;
             }}
             className={`hover:drop-shadow-xl cursor-pointer  rounded px-5 py-2 text-xl outline-0   ${
               !isBuyer

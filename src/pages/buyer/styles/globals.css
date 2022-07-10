@@ -166,8 +166,6 @@ span.text-red {
   position: absolute;
   top: 0%;
   right: 10%;
-  width: 400px;
-  height: 400px;
 }
 
 .desc {
@@ -614,8 +612,6 @@ span.text-red {
     height: 560px;
   }
   .hero-banner-image {
-    width: 77%;
-    height: 62%;
     top: -2%;
     right: -6%;
   }

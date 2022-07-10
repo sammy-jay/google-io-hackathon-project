@@ -11,7 +11,7 @@ const HeroBanner = ({ heroBanner }) => {
         <img
           src={heroBanner.image}
           alt="headphones"
-          className="hero-banner-image"
+          className="hero-banner-image w-[350px] h-[300px] lg:w-[450px] lg:h-[400px]"
         />
 
         <div>
