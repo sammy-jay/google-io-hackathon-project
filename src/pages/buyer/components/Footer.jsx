@@ -21,7 +21,7 @@ const Footer = () => {
       >
         Logout
       </button>
-      <p> © {new Date().getFullYear()} All rights reserved by FarmX</p>
+      <p> © {new Date().getFullYear()} All rights reserved by FarmGrove</p>
       <p className="icons">
         <AiFillInstagram />
         <AiOutlineTwitter />

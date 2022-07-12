@@ -11,11 +11,14 @@ const Navbar = () => {
     <div className="navbar-container my-2 mx-4">
       <p className="logo ">
         <Link to="/">
-          <span className="text-[#7352FF] font-logo font-bold text-5xl">F</span>
-          <span className="text-[#7352FF] font-logo font-light text-3xl">
+          <span className="text-[#7352FF] font-logo font-bold text-4xl">F</span>
+          <span className="text-[#7352FF] font-logo font-light text-2xl">
             arm
           </span>
-          <span className="text-[#7352FF] font-logo font-bold text-5xl">X</span>
+          <span className="text-[#7352FF] font-logo font-bold text-4xl">G</span>
+           <span className="text-[#7352FF] font-logo font-light text-2xl">
+            rove
+          </span>
         </Link>
       </p>
 

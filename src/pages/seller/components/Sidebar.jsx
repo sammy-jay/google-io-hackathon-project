@@ -33,9 +33,10 @@ const Sidebar = () => {
               className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900"
             >
               <div className="dark:text-white text-slate-900">
-                <span className="font-logo font-bold text-5xl">F</span>
-                <span className="font-logo font-light text-3xl">arm</span>
-                <span className="font-logo font-bold text-5xl">X</span>
+                <span className="font-logo font-bold text-4xl">F</span>
+                <span className="font-logo font-light text-2xl">arm</span>
+                <span className="font-logo font-bold text-4xl">G</span>
+                <span className="font-logo font-light text-2xl">rove</span>
               </div>
             </Link>
             <TooltipComponent content="Menu" position="BottomCenter">

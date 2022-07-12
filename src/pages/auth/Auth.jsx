@@ -292,7 +292,7 @@ const Auth = () => {
 
       <div className="mt-24">
         <p className="text-gray-700 text-center p-20">
-          © {new Date().getFullYear()} All rights reserved by FarmX
+          © {new Date().getFullYear()} All rights reserved by FarmGrove
         </p>
       </div>
     </div>
