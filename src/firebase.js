@@ -4,17 +4,15 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
-import dotenv from "dotenv"
-dotenv.config()
 
 const firebaseConfig = {
-  apiKey: process.env.API_KEY,
-  authDomain: process.env.AUTH_DOMAIN,
-  projectId: process.env.PROJECT_ID,
-  storageBucket: process.env.STORAGE_BUCKET,
-  messagingSenderId: process.env.MESSAGING_SENDER_ID,
-  appId: process.env.APP_ID,
-  measurementId: process.env.MEASUREMENT_ID,
+  apiKey: "AIzaSyAg6cLUKThR5UEhjZFhzlxnrHJbxDbhr3E",
+  authDomain: "io-hackathon-farmx.firebaseapp.com",
+  projectId: "io-hackathon-farmx",
+  storageBucket: "io-hackathon-farmx.appspot.com",
+  messagingSenderId: "719078074132",
+  appId: "1:719078074132:web:efbebfb2bb91e6bf6f0401",
+  measurementId: "G-B976D2871T",
 };
 
 // Initialize Firebase
